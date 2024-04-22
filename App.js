@@ -103,6 +103,8 @@ const OpeningScreen = ({ navigation }) => {
 
 const HomeScreen = (route) => {
 
+  const ITEM_HEIGHT = 50; // 가정한 항목의 높이
+
   const scrollToItem = (index) => {
     // FlatList의 scrollToIndex 메서드를 사용하여 특정 인덱스로 스크롤
     flatListRef.current.scrollToIndex({animated: true, index: index});
@@ -413,7 +415,11 @@ useEffect(() => {
     />
   )}
   keyExtractor={(item) => item.id.toString()}
-  ItemSeparatorComponent={() => <View style={styles.separator} />} // 여기에 구분선 컴포넌트 추가
+  getItemLayout={(data, index) => ({
+    length: ITEM_HEIGHT,
+    offset: ITEM_HEIGHT * index,
+    index,
+  })}
   showsVerticalScrollIndicator={false} // 스크롤바 숨기기
 />
 
