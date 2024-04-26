@@ -1179,10 +1179,10 @@ useFocusEffect(
             
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' ,top:-5}}>
            
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center',marginLeft:30,bottom:5 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center',marginLeft:25 ,bottom:5}}>
         <Text>{formatTime(playbackPosition)} / {formatTime(playbackDuration)}</Text>
         <Slider
-              style={{ width: 200, height: 40, }}
+              style={{ width: 230, height: 40, }}
               minimumValue={0}
               maximumValue={1}
               value={playbackPosition / playbackDuration}
