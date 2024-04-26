@@ -1194,11 +1194,11 @@ useFocusEffect(
          {/* 다시 재생 토글 버튼 */}
     </View>
     <View style={{ flexDirection: 'row', justifyContent: 'center',left: 8, bottom:10}}>
-    <TouchableOpacity onPress={handleRestart} style={{ marginRight: 40 ,marginLeft:40}}>
+    <TouchableOpacity onPress={handleRestart} style={{ marginRight: 45 ,marginLeft:25}}>
                 <Image source={require('./images/backward.png')} style={{ width: 25, height: 25}} />
               </TouchableOpacity>
       {/* 재생/일시정지 토글 버튼 */}
-                <TouchableOpacity onPress={handleTogglePlayPause} style={{ marginRight: 40,marginLeft:40}}>
+      <TouchableOpacity onPress={handleTogglePlayPause} style={{ marginRight: 45,marginLeft:45}}>
                 <Image
                   source={isPlaying ? require('./images/pause.png') : require('./images/play.png')}
                   style={{ width: 25, height: 25}}
@@ -1206,7 +1206,7 @@ useFocusEffect(
               </TouchableOpacity>
     
       {/* 반복 재생 토글 버튼 */}
-      <TouchableOpacity onPress={toggleLooping} style={{ marginLeft:40,marginRight: 40 }}>
+      <TouchableOpacity onPress={toggleLooping} style={{ marginLeft:45,marginRight: 40 }}>
       <Image
         source={isLooping ? require('./images/looping.png') : require('./images/nonloop.png')} // 이미지 경로는 실제 프로젝트 구조에 맞게 조정
         style={{ width: 25, height: 25 }}// 이미지 크기 조정
