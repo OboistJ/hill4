@@ -15,6 +15,8 @@ import Slider from '@react-native-community/slider';
 import * as Font from 'expo-font';
 import  {  ReactNativeZoomableView  }  from  '@openspacelabs/react-native-zoomable-view' ;
 import { TabView,TabBar,} from 'react-native-tab-view';
+import ZoomView from 'react-native-border-zoom-view';
+import ViewControl from 'react-native-zoom-view'
 
 async function loadFonts() {
   await Font.loadAsync({
@@ -760,31 +762,23 @@ const renderScene = ({ route }) => {
           horizontal={false}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          scrollEnabled={false}
+          scrollEnabled={true}
         >
         
        <View style={{ flexGrow: 1}}>
     
         
            
-          <ReactNativeZoomableView   style={{ flexGrow: 1}}// ZoomableView 추가
-          
-          maxZoom={images.length > 1 ? 6 : 3} // 최대 줌 배율
-          minZoom={images.length > 1 ? 1.6 : 1}
-          zoomStep={4} // 줌 단계
-          initialZoom={images.length > 1 ? 1.6: 1} // 초기 줌 배율
-          bindToBorders={true}
-          initialOffsetY={images.length > 1 ? setY: 1}
-              
-              
-              
-            >
+       <ViewControl
+       cropWidth={width}     
+       cropHeight={height*2}
+       imageWidth={width}
+       imageHeight={height*2}>
           {images.map((image, index) => (
             <Image key={index} source={image} style={images.length > 1 ? styles.image2 : styles.image} />
           ))}
-          </ReactNativeZoomableView>
-          
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' ,top:-5}}>
+          </ViewControl>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' ,top:-5, marginTop: images.length > 1 ? -400 :-1050}}>
          
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center',marginLeft:25 ,bottom:5}}>
       <Text>{formatTime(playbackPosition)} / {formatTime(playbackDuration)}</Text>
@@ -1166,9 +1160,9 @@ useFocusEffect(
             <ReactNativeZoomableView // ZoomableView 추가
             
             maxZoom={images.length > 1 ? 6 : 3} // 최대 줌 배율
-            minZoom={images.length > 1 ? 1.6 : 1}
+            minZoom={images.length > 1 ? 1.8 : 1}
             zoomStep={4} // 줌 단계
-            initialZoom={images.length > 1 ? 1.6: 1} // 초기 줌 배율
+            initialZoom={images.length > 1 ? 1.8: 1} // 초기 줌 배율
             bindToBorders={true}
             initialOffsetY={images.length > 1 ? setY: 1}
               >
